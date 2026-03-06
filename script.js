@@ -5,13 +5,13 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstati
 
 // Konfigurasi Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyAPB3H7EsMOXuqvO0sqHYUe8uX6rp8iwJU",  // Gantilah dengan API Key dari Firebase Console
-    authDomain: "portofolio-web-78c7c.firebaseapp.com",
-    projectId: "portofolio-web-78c7c",
-    storageBucket: "portofolio-web-78c7c.appspot.com",
-    messagingSenderId: "471900657832",
-    appId: "1:471900657832:web:8286c7c89ae557db510a9d",
-    measurementId: "G-4PR74GF8DT"
+  apiKey: "AIzaSyAPB3H7EsMOXuqvO0sqHYUe8uX6rp8iwJU",
+  authDomain: "portofolio-web-78c7c.firebaseapp.com",
+  projectId: "portofolio-web-78c7c",
+  storageBucket: "portofolio-web-78c7c.firebasestorage.app",
+  messagingSenderId: "471900657832",
+  appId: "1:471900657832:web:8286c7c89ae557db510a9d",
+  measurementId: "G-4PR74GF8DT"
 };
 
 // Inisialisasi Firebase

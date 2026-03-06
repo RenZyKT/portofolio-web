@@ -14,11 +14,7 @@
                 <ul>
                     <li><a href="#about">Tentang Saya</a></li>
                     <li><a href="#projects">Proyek</a></li>
-                    <li><a href="#internship">Magang</a></li>
-                    <li><a href="#competition">Lomba</a></li>
-                    <li><a href="#research">Penelitian</a></li>
-                    <li><a href="#certification">Sertifikasi</a></li>
-                    <li><a href="#organization">Organisasi</a></li>
+                    <li><a href="#update">Update Portofolio</a></li> <!-- Update Proyek -->
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
@@ -37,62 +33,24 @@
     <section id="projects">
         <div class="container">
             <h2>Proyek yang Pernah Dilakukan</h2>
-            <div id="project-list" class="project-list"></div>
+            <div id="project-list" class="project-list">
+                <!-- Proyek akan ditambahkan di sini secara dinamis -->
+            </div>
         </div>
     </section>
 
-    <!-- Pengalaman Magang -->
-    <section id="internship">
+    <!-- Update Portofolio -->
+    <section id="update">
         <div class="container">
-            <h2>Pengalaman Magang</h2>
-            <div id="internship-list" class="project-list"></div>
-        </div>
-    </section>
-
-    <!-- Pengalaman Lomba -->
-    <section id="competition">
-        <div class="container">
-            <h2>Pengalaman Lomba</h2>
-            <div id="competition-list" class="project-list"></div>
-        </div>
-    </section>
-
-    <!-- Pengalaman Penelitian -->
-    <section id="research">
-        <div class="container">
-            <h2>Pengalaman Penelitian</h2>
-            <div id="research-list" class="project-list"></div>
-        </div>
-    </section>
-
-    <!-- Sertifikasi/Pelatihan -->
-    <section id="certification">
-        <div class="container">
-            <h2>Pelatihan / Sertifikasi</h2>
-            <div id="certification-list" class="project-list"></div>
-        </div>
-    </section>
-
-    <!-- Pengalaman Organisasi -->
-    <section id="organization">
-        <div class="container">
-            <h2>Pengalaman Organisasi</h2>
-            <div id="organization-list" class="project-list"></div>
-        </div>
-    </section>
-
-    <!-- Kontak -->
-    <section id="contact">
-        <div class="container">
-            <h2>Kontak Saya</h2>
-            <form action="mailto:email@example.com" method="post" enctype="text/plain">
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required />
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-                <label for="message">Pesan:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Kirim Pesan</button>
+            <h2>Update Proyek</h2>
+            <form id="update-form">
+                <label for="title">Judul Proyek:</label>
+                <input type="text" id="title" required />
+                <label for="description">Deskripsi:</label>
+                <textarea id="description" required></textarea>
+                <label for="attachment">Lampiran (URL Gambar):</label>
+                <input type="url" id="attachment" required />
+                <button type="submit">Update Proyek</button>
             </form>
         </div>
     </section>

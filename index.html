@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Saya</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Portofolio Saya</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Tentang Saya</a></li>
+                    <li><a href="#projects">Proyek</a></li>
+                    <li><a href="#internship">Magang</a></li>
+                    <li><a href="#competition">Lomba</a></li>
+                    <li><a href="#research">Penelitian</a></li>
+                    <li><a href="#certification">Sertifikasi</a></li>
+                    <li><a href="#organization">Organisasi</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Tentang Saya -->
+    <section id="about">
+        <div class="container">
+            <h2>Tentang Saya</h2>
+            <p>Halo, nama saya Muhamad Reza Nur Fadillah. Saya Mahasiswa D4-Teknik Elektronika POLBAN...</p>
+        </div>
+    </section>
+
+    <!-- Proyek -->
+    <section id="projects">
+        <div class="container">
+            <h2>Proyek yang Pernah Dilakukan</h2>
+            <div id="project-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Magang -->
+    <section id="internship">
+        <div class="container">
+            <h2>Pengalaman Magang</h2>
+            <div id="internship-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Lomba -->
+    <section id="competition">
+        <div class="container">
+            <h2>Pengalaman Lomba</h2>
+            <div id="competition-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Penelitian -->
+    <section id="research">
+        <div class="container">
+            <h2>Pengalaman Penelitian</h2>
+            <div id="research-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Sertifikasi/Pelatihan -->
+    <section id="certification">
+        <div class="container">
+            <h2>Pelatihan / Sertifikasi</h2>
+            <div id="certification-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Organisasi -->
+    <section id="organization">
+        <div class="container">
+            <h2>Pengalaman Organisasi</h2>
+            <div id="organization-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact">
+        <div class="container">
+            <h2>Kontak Saya</h2>
+            <form action="mailto:email@example.com" method="post" enctype="text/plain">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Muhamad Reza Nur Fadillah. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Template -->
+    <div id="modal-template" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 class="modal-title">Deskripsi Proyek</h3>
+            <p class="modal-description">Deskripsi proyek akan muncul di sini.</p>
+            <div class="attachments"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

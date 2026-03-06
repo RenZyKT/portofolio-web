@@ -1,11 +1,11 @@
 // Konfigurasi Firebase
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "BIpXzj_4nmyyoGfWCZUCnwnbLGj-W9FKHaSGsWxTdv9WbYL4WquNLvQ4qzgh05x1lfL-92TPhQvJGUJ0K1-dqHk",
+    authDomain: "portofolio-web-78c7c.firebaseapp.com",
+    projectId: "portofolio-web-78c7c",
+    storageBucket: "portofolio-web-78c7c.appspot.com",
+    messagingSenderId: "471900657832",
+    appId: "portofolio-web-78c7c"
 };
 
 // Inisialisasi Firebase
@@ -70,13 +70,12 @@ function addPortfolio(event) {
     const description = document.getElementById('description').value;
     const attachment = document.getElementById('attachment').files[0];
 
-    // Jika ada gambar, upload gambar ke Firebase Storage
     const reader = new FileReader();
     reader.onloadend = function() {
         const newItem = {
             title,
             description,
-            attachment: reader.result
+            attachment: reader.result // Menyimpan URL gambar di localStorage
         };
         portfolioData[category].push(newItem);
 
@@ -89,7 +88,7 @@ function addPortfolio(event) {
         // Reset form
         document.getElementById('update-form').reset();
     };
-    reader.readAsDataURL(attachment);
+    reader.readAsDataURL(attachment); // Membaca file gambar
 }
 
 // Fungsi untuk login dan verifikasi email
@@ -104,6 +103,7 @@ function signIn(email, password) {
                 window.location.href = "/";  // Redirect ke halaman utama jika email tidak cocok
             } else {
                 alert("Login berhasil! Anda dapat memperbarui portofolio.");
+                // Akses form Update Portofolio diaktifkan
                 document.getElementById("update").style.display = "block"; // Menampilkan form Update Portofolio
                 document.getElementById("login").style.display = "none"; // Menyembunyikan form login
             }

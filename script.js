@@ -1,34 +1,41 @@
-// Data proyek yang disimpan di localStorage
-let projects = JSON.parse(localStorage.getItem('projects')) || [];
+// Data portofolio yang disimpan di localStorage
+let portfolioData = JSON.parse(localStorage.getItem('portfolioData')) || {
+    projects: [],
+    internship: [],
+    competition: [],
+    research: [],
+    certification: [],
+    organization: []
+};
 
-// Fungsi untuk menampilkan konten proyek ke halaman
-function displayProjects() {
-    const projectList = document.getElementById('project-list');
-    projectList.innerHTML = ''; // Kosongkan daftar proyek sebelumnya
+// Fungsi untuk menampilkan data berdasarkan kategori
+function displayPortfolio(category) {
+    const container = document.getElementById(category + '-list');
+    container.innerHTML = ''; // Kosongkan konten sebelumnya
 
-    projects.forEach((project, index) => {
-        let projectItem = document.createElement('div');
-        projectItem.classList.add('project-item');
-        projectItem.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.description.substring(0, 100)}...</p>
-            <button class="open-modal" onclick="openModal(${index})">Lihat Detail</button>
+    portfolioData[category].forEach((item, index) => {
+        let contentItem = document.createElement('div');
+        contentItem.classList.add('project-item');
+        contentItem.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.description.substring(0, 100)}...</p>
+            <button class="open-modal" onclick="openModal(${index}, '${category}')">Lihat Detail</button>
         `;
-        projectList.appendChild(projectItem);
+        container.appendChild(contentItem);
     });
 }
 
 // Fungsi untuk membuka modal dengan detail
-function openModal(index) {
+function openModal(index, category) {
     const modal = document.getElementById('modal-template');
     const modalTitle = modal.querySelector('.modal-title');
     const modalDescription = modal.querySelector('.modal-description');
     const modalAttachments = modal.querySelector('.attachments');
     
-    const project = projects[index];
-    modalTitle.innerText = project.title;
-    modalDescription.innerText = project.description;
-    modalAttachments.innerHTML = `<img src="${project.attachment}" alt="Lampiran" />`;
+    const item = portfolioData[category][index];
+    modalTitle.innerText = item.title;
+    modalDescription.innerText = item.description;
+    modalAttachments.innerHTML = `<img src="${item.attachment}" alt="Lampiran" />`;
 
     // Menampilkan modal
     modal.style.display = "block";
@@ -40,29 +47,45 @@ function closeModal() {
     modal.style.display = "none";
 }
 
-// Fungsi untuk menambahkan proyek baru
-function addProject(event) {
+// Fungsi untuk menambahkan data baru
+function addPortfolio(event) {
     event.preventDefault();
 
+    const category = document.getElementById('category').value;
     const title = document.getElementById('title').value;
     const description = document.getElementById('description').value;
-    const attachment = document.getElementById('attachment').value;
+    const attachment = document.getElementById('attachment').files[0];
 
-    const newProject = { title, description, attachment };
-    projects.push(newProject);
+    const reader = new FileReader();
+    reader.onloadend = function() {
+        const newItem = {
+            title,
+            description,
+            attachment: reader.result
+        };
+        portfolioData[category].push(newItem);
 
-    // Simpan proyek baru ke localStorage
-    localStorage.setItem('projects', JSON.stringify(projects));
+        // Simpan data ke localStorage
+        localStorage.setItem('portfolioData', JSON.stringify(portfolioData));
 
-    // Tampilkan proyek yang baru ditambahkan
-    displayProjects();
+        // Tampilkan data yang baru ditambahkan
+        displayPortfolio(category);
 
-    // Reset form
-    document.getElementById('update-form').reset();
+        // Reset form
+        document.getElementById('update-form').reset();
+    };
+    reader.readAsDataURL(attachment);
 }
 
 // Event listener untuk form
-document.getElementById('update-form').addEventListener('submit', addProject);
+document.getElementById('update-form').addEventListener('submit', addPortfolio);
 
-// Menampilkan proyek yang sudah ada saat halaman dimuat
-window.onload = displayProjects;
+// Menampilkan data yang sudah ada saat halaman dimuat
+window.onload = function() {
+    displayPortfolio('projects');
+    displayPortfolio('internship');
+    displayPortfolio('competition');
+    displayPortfolio('research');
+    displayPortfolio('certification');
+    displayPortfolio('organization');
+};

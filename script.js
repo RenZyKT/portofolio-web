@@ -1,17 +1,23 @@
+// Import Firebase SDK Modular
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-storage.js";
+
 // Konfigurasi Firebase
 const firebaseConfig = {
-    apiKey: "BIpXzj_4nmyyoGfWCZUCnwnbLGj-W9FKHaSGsWxTdv9WbYL4WquNLvQ4qzgh05x1lfL-92TPhQvJGUJ0K1-dqHk",
+    apiKey: "AIzaSyAPB3H7EsMOXuqvO0sqHYUe8uX6rp8iwJU",  // Gantilah dengan API Key dari Firebase Console
     authDomain: "portofolio-web-78c7c.firebaseapp.com",
     projectId: "portofolio-web-78c7c",
     storageBucket: "portofolio-web-78c7c.appspot.com",
     messagingSenderId: "471900657832",
-    appId: "portofolio-web-78c7c"
+    appId: "1:471900657832:web:8286c7c89ae557db510a9d",
+    measurementId: "G-4PR74GF8DT"
 };
 
 // Inisialisasi Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth(app);
-const storage = firebase.storage(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const storage = getStorage(app);
 
 // Data portofolio yang disimpan di localStorage
 let portfolioData = JSON.parse(localStorage.getItem('portfolioData')) || {
@@ -93,7 +99,7 @@ function addPortfolio(event) {
 
 // Fungsi untuk login dan verifikasi email
 function signIn(email, password) {
-    auth.signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
 
@@ -103,7 +109,6 @@ function signIn(email, password) {
                 window.location.href = "/";  // Redirect ke halaman utama jika email tidak cocok
             } else {
                 alert("Login berhasil! Anda dapat memperbarui portofolio.");
-                // Akses form Update Portofolio diaktifkan
                 document.getElementById("update").style.display = "block"; // Menampilkan form Update Portofolio
                 document.getElementById("login").style.display = "none"; // Menyembunyikan form login
             }

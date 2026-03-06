@@ -14,7 +14,12 @@
                 <ul>
                     <li><a href="#about">Tentang Saya</a></li>
                     <li><a href="#projects">Proyek</a></li>
-                    <li><a href="#update">Update Portofolio</a></li> <!-- Update Proyek -->
+                    <li><a href="#internship">Pengalaman Magang</a></li>
+                    <li><a href="#competition">Pengalaman Lomba</a></li>
+                    <li><a href="#research">Pengalaman Penelitian</a></li>
+                    <li><a href="#certification">Pelatihan/Sertifikasi</a></li>
+                    <li><a href="#organization">Pengalaman Organisasi</a></li>
+                    <li><a href="#update">Update Portofolio</a></li>
                     <li><a href="#contact">Kontak</a></li>
                 </ul>
             </nav>
@@ -33,24 +38,71 @@
     <section id="projects">
         <div class="container">
             <h2>Proyek yang Pernah Dilakukan</h2>
-            <div id="project-list" class="project-list">
-                <!-- Proyek akan ditambahkan di sini secara dinamis -->
-            </div>
+            <div id="project-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Magang -->
+    <section id="internship">
+        <div class="container">
+            <h2>Pengalaman Magang</h2>
+            <div id="internship-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Lomba -->
+    <section id="competition">
+        <div class="container">
+            <h2>Pengalaman Lomba</h2>
+            <div id="competition-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Penelitian -->
+    <section id="research">
+        <div class="container">
+            <h2>Pengalaman Penelitian</h2>
+            <div id="research-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pelatihan / Sertifikasi -->
+    <section id="certification">
+        <div class="container">
+            <h2>Pelatihan / Sertifikasi</h2>
+            <div id="certification-list" class="project-list"></div>
+        </div>
+    </section>
+
+    <!-- Pengalaman Organisasi -->
+    <section id="organization">
+        <div class="container">
+            <h2>Pengalaman Organisasi</h2>
+            <div id="organization-list" class="project-list"></div>
         </div>
     </section>
 
     <!-- Update Portofolio -->
     <section id="update">
         <div class="container">
-            <h2>Update Proyek</h2>
+            <h2>Update Portofolio</h2>
             <form id="update-form">
-                <label for="title">Judul Proyek:</label>
+                <label for="category">Kategori:</label>
+                <select id="category">
+                    <option value="projects">Proyek</option>
+                    <option value="internship">Pengalaman Magang</option>
+                    <option value="competition">Pengalaman Lomba</option>
+                    <option value="research">Pengalaman Penelitian</option>
+                    <option value="certification">Pelatihan/Sertifikasi</option>
+                    <option value="organization">Pengalaman Organisasi</option>
+                </select>
+                <label for="title">Judul:</label>
                 <input type="text" id="title" required />
                 <label for="description">Deskripsi:</label>
                 <textarea id="description" required></textarea>
-                <label for="attachment">Lampiran (URL Gambar):</label>
-                <input type="url" id="attachment" required />
-                <button type="submit">Update Proyek</button>
+                <label for="attachment">Lampiran (Upload Gambar):</label>
+                <input type="file" id="attachment" accept="image/*" />
+                <button type="submit">Update Portofolio</button>
             </form>
         </div>
     </section>
@@ -60,16 +112,6 @@
             <p>&copy; 2026 Muhamad Reza Nur Fadillah. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Modal Template -->
-    <div id="modal-template" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h3 class="modal-title">Deskripsi Proyek</h3>
-            <p class="modal-description">Deskripsi proyek akan muncul di sini.</p>
-            <div class="attachments"></div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>
